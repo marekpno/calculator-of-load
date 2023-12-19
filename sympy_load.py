@@ -4,9 +4,13 @@ import xlwings as xw
 from openpyxl import Workbook
 import pickle
 import matplotlib.pyplot as plt
+import os
+
+# solve problem with find file with dictionary
+sciezka_do_pliku = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dictionary.pkl')
 
 # Load dictionary from file
-with open('dictionary.pkl', 'rb') as plik:
+with open(sciezka_do_pliku, 'rb') as plik:
     dictionary = pickle.load(plik)
 
 # symbols for constant

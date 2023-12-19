@@ -1,6 +1,5 @@
 import pickle
 
-
 def front_semi_truck():
     command = "start"
     while command != "2":
@@ -9,20 +8,20 @@ def front_semi_truck():
                         "dictionary of values\n>")
         if command == "1":
             # set up conditional
-            dmc = ["dmc", 0, "total mass of semitrailer?"]
-            Rd_max = ["Rd_max", 0, "what is total load of axes semitrailer [kg]?"]
-            Rb_max = ["Rb_max", 0, "what is  maximium  load of motion axes [kg]?"]
-            Rb_min = ["Rb_min", 0, "what is  minium procentage of total mass on motion axes [%]?"]
-            Xc = ["Xc", 0, "distance between motion axes and king pin[mm]?"]
-            Qs = ["Qs", 0, "load of body [kg]?"]
+            dmc = ["dmc", 0, "dmc - total mass of semitrailer?"]
+            Rd_max = ["Rd_max", 0, "Rd_max - what is total load of axes semitrailer [kg]?"]
+            Rb_max = ["Rb_max", 0, "Rb_max - what is  maximium  load of motion axes [kg]?"]
+            Rb_min = ["Rb_min", 0, "Rb_min - what is  minium procentage of total mass on motion axes [%]?"]
+            Xc = ["Xc", 0, "Xc - distance between motion axes and king pin[mm]?"]
+            Qs = ["Qs", 0, "Qs - load of body [kg]?"]
             Xs = ["Xs", 0, "position load of body [mm]?"]
-            Qr = ["Qr", 0, "load of fame (without axes) [kg]?"]
-            Xr = ["Xr", 0, "position load of fame (without axes) [mm]?"]
-            Qz = ["Qz", 0, "load of suspension [kg]?"]
-            Xz = ["Xz", 0, "position load of suspension [mm]?"]
-            Qa = ["Qa", 0, "load of first axe truck unit without load[kg]?"]
-            Xa = ["Xa", 0, "position of first axe truck unit [mm]?"]
-            Qb = ["Qb", 0, "load of motion axes truck unit without load [kg]?"]
+            Qr = ["Qr", 0, "Xs - load of fame (without axes) [kg]?"]
+            Xr = ["Xr", 0, "Xr - position load of fame (without axes) [mm]?"]
+            Qz = ["Qz", 0, "Qz - load of suspension [kg]?"]
+            Xz = ["Xz", 0, "Xz - position load of suspension [mm]?"]
+            Qa = ["Qa", 0, "Qa - load of first axe truck unit without load[kg]?"]
+            Xa = ["Xa", 0, "Xa - position of first axe truck unit [mm]?"]
+            Qb = ["Qb", 0, "Qb - load of motion axes truck unit without load [kg]?"]
             # list of questions
             questions = [dmc, Rd_max, Rb_max, Rb_min, Xc, Qs, Xs, Qr, Xr, Qz, Xz, Qa, Xa, Qb]
             # list of answers

@@ -2,6 +2,7 @@ from front_semi import front_semi
 from front_semi_truck import front_semi_truck
 import subprocess
 
+
 # Welcome
 print("Hallo! Here is caculator of maximium load weight for semitrailers")
 # empty command to start

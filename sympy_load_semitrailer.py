@@ -4,25 +4,29 @@ import xlwings as xw
 from openpyxl import Workbook
 import pickle
 import matplotlib.pyplot as plt
+import os
+
+# solve problem with find file with dictionary
+sciezka_do_pliku = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dictionary_only_semi.pkl')
 
 # Load dictionary from file
-with open('dictionary_only_semi.pkl', 'rb') as plik:
-    dictionary = pickle.load(plik)
+with open(sciezka_do_pliku, 'rb') as plik:
+    dictionary_only_semi = pickle.load(plik)
 
 # symbols for constant
 Rd0, Rc0,  RdQ, RcQ, Q, Rc, Rd, Ql = \
     symbols('Rd0 Rc0 RdQ RcQ Q  Rc Rd Ql')
 
 # def value of constant from dictionary
-Qs = int(dictionary["Qs"])
-Xs = int(dictionary["Xs"])
-Qr = int(dictionary["Qr"])
-Xr = int(dictionary["Xr"])
-Qz = int(dictionary["Qz"])
-Xz = int(dictionary["Xz"])
-dmc = int(dictionary["dmc"])
-Rd_max = int(dictionary["Rd_max"])
-Rc_max = int(dictionary["Rc_max"])
+Qs = int(dictionary_only_semi["Qs"])
+Xs = int(dictionary_only_semi["Xs"])
+Qr = int(dictionary_only_semi["Qr"])
+Xr = int(dictionary_only_semi["Xr"])
+Qz = int(dictionary_only_semi["Qz"])
+Xz = int(dictionary_only_semi["Xz"])
+dmc = int(dictionary_only_semi["dmc"])
+Rd_max = int(dictionary_only_semi["Rd_max"])
+Rc_max = int(dictionary_only_semi["Rc_max"])
 Xl_start, Xl_end, Xl_step = 100, 10500, 100  # Adjusted Xl parameters
 
 data_xl = []
