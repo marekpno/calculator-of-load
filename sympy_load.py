@@ -6,11 +6,14 @@ import pickle
 import matplotlib.pyplot as plt
 import os
 
-# solve problem with find file with dictionary
-sciezka_do_pliku = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dictionary.pkl')
+# definition path for current catalog of script
+catalog_path = os.path.dirname(os.path.abspath(__file__))
+
+# definition path for data in same catalog
+data_path = os.path.join(catalog_path, 'dictionary.pkl')
 
 # Load dictionary from file
-with open(sciezka_do_pliku, 'rb') as plik:
+with open(data_path, 'rb') as plik:
     dictionary = pickle.load(plik)
 
 # symbols for constant

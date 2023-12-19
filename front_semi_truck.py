@@ -1,6 +1,13 @@
 import pickle
+import os
 
 def front_semi_truck():
+    # definition path for current catalog of script
+    catalog_path = os.path.dirname(os.path.abspath(__file__))
+
+    # definition path for data in same catalog
+    data_path = os.path.join(catalog_path, 'dictionary.pkl')
+
     command = "start"
     while command != "2":
 
@@ -56,13 +63,13 @@ def front_semi_truck():
                 if command == "exit":
                     break
             # save data
-            with open('dictionary.pkl', 'wb') as plik:
+            with open(data_path, 'wb') as plik:
                 pickle.dump(dictionary, plik)
         elif command == "3":
             #except error
             try:
                 # Load dictionary from file
-                with open('dictionary.pkl', 'rb') as plik:
+                with open(data_path, 'rb') as plik:
                     dictionary = pickle.load(plik)
                 print(dictionary)
             #if couldun t find data

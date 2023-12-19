@@ -1,7 +1,12 @@
 import pickle
-
+import os
 
 def front_semi():
+    # definition path for current catalog of script
+    catalog_path = os.path.dirname(os.path.abspath(__file__))
+
+    # definition path for data in same catalog
+    data_path = os.path.join(catalog_path, 'dictionary_only_semi.pkl')
     command = "start"
     while command != "2":
 
@@ -58,13 +63,13 @@ def front_semi():
                 if command == "exit":
                     break
             # save data
-            with open('dictionary_only_semi.pkl', 'wb') as plik:
+            with open(data_path, 'wb') as plik:
                 pickle.dump(dictionary, plik)
         elif command == "3":
             #except error
             try:
                 # Load dictionary from file
-                with open('dictionary_only_semi.pkl', 'rb') as plik:
+                with open(data_path, 'rb') as plik:
                     dictionary = pickle.load(plik)
                 print(dictionary)
             #if couldun t find data
