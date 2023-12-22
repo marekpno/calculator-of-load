@@ -1,6 +1,5 @@
 from sympy import symbols, Eq, solve
 import pandas as pd
-import xlwings as xw
 from openpyxl import Workbook
 import pickle
 import matplotlib.pyplot as plt
@@ -106,10 +105,12 @@ for Xl_val in range(Xl_start, Xl_end + Xl_step, Xl_step):
         eq5 = Eq(Ql * Xl_val - RdQ * Xz, 0)
 
     # Combine all equations
-    equations = [eq1, eq2, eq3, eq4, eq5, eq6, eq7, eq8, eq9, eq10, eq11, eq12, eq13, eq15]
+    equations = [eq1, eq2, eq3, eq4, eq5, eq6, eq7, eq8, eq9, eq10, eq11, eq12,
+                 eq13, eq15]
 
     # Solve the system of equations
-    solutions = solve(equations, (Rd0, Rc0, Rb0, Ra0, Ra, Rb, Rc, Rd, RaQ, RbQ, RcQ, RdQ, Ql, Q))
+    solutions = solve(equations, (Rd0, Rc0, Rb0, Ra0, Ra, Rb, Rc, Rd, RaQ, RbQ,
+                                  RcQ, RdQ, Ql, Q))
 
     # Round the solutions
     rounded_solutions = [(var, round(val, 2)) for var, val in solutions.items()]
@@ -159,10 +160,13 @@ df_24000 = pd.DataFrame(data_24000)
 wb = Workbook()
 ws = wb.active
 df = pd.concat([data_xl, df_0_25, df_11500, df_24000], axis=1)
-df.columns = ['location from king pin [mm]', f'Ql for {Rb_min} motion axis', f'Ql max  {Rb_max} t for kingpin',f'Ql max  {Rd_max} t for axes']
+df.columns = ['location from king pin [mm]', f'Ql for {Rb_min} motion axis',
+              f'Ql max  {Rb_max} t for kingpin', f'Ql max  {Rd_max} t for axes']
 
-#check the minimum Ql
-columns_range = [f'Ql for {Rb_min} motion axis', f'Ql max  {Rb_max} t for kingpin', f'Ql max  {Rd_max} t for axes']
+# check the minimum Ql
+columns_range = [f'Ql for {Rb_min} motion axis',
+                 f'Ql max  {Rb_max} t for kingpin',
+                 f'Ql max  {Rd_max} t for axes']
 
 # selected columns in df
 selected_columns_df = df[columns_range]
@@ -182,15 +186,17 @@ for index, row in selected_columns_df.iterrows():
 df_min = pd.DataFrame(min_values_list)
 
 # update df (add df_min)
-df = pd.concat([data_xl, df_0_25, df_11500, df_24000,df_min], axis=1)
-df.columns = ['location from king pin [mm]', f'Ql for {Rb_min} motion axis', f'Ql max  {Rb_max} t for kingpin', f'Ql max  {Rd_max} t for axes', 'Qlmax']
+df = pd.concat([data_xl, df_0_25, df_11500, df_24000, df_min], axis=1)
+df.columns = ['location from king pin [mm]',
+              f'Ql for {Rb_min} motion axis', f'Ql max  {Rb_max} t for kingpin',
+              f'Ql max  {Rd_max} t for axes', 'Qlmax']
 
 
 # col for change value
 target_column = 'Qlmax'
 
 # calculate Qmax
-Q_max = dmc - Qs - Qr -Qz - Qa - Qb
+Q_max = dmc - Qs - Qr - Qz - Qa - Qb
 
 # function of lambda for replace max value
 replace_func = lambda x: Q_max if x > Q_max else x
@@ -198,19 +204,32 @@ replace_func = lambda x: Q_max if x > Q_max else x
 # use function for selected col
 df[target_column] = df[target_column].apply(replace_func)
 
-# crate new one excel --> name book
-book = xw.Book()
+# option when user has not excel
+try:
+    import xlwings as xw
 
-sheet1 = book.sheets[0]
+    # crate new one excel --> name book
+    book = xw.Book()
+
+    sheet1 = book.sheets[0]
+
+    # put df to cell A6 without header and index
+    sheet1["A1"].options(header=True, index=False).value = df
+
+except ImportError:
+    # none becouse I can use now xw in another part of code
+    xw = None  # Definiowanie xw w bloku except
+    # if user has not excel
+    # save data in openpyxl
+    df.to_excel('nazwa_pliku.xlsx', index=False)
+    print("Uwaga: xlwings nie jest dostępne. Dane zostały zapisane do pliku "
+          "Excela za pomocą openpyxl.")
 
 # create plot
 plt.plot(df['location from king pin [mm]'], df['Qlmax'])
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Depend of max load of location')
-
-# put df to cell A6 without header and index
-sheet1["A1"].options(header=True, index=False).value = df
 
 # show plot
 plt.show()
