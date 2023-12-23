@@ -5,7 +5,18 @@ Project caculate maxium load for semitrailer or semitrailer and truckunit.
 Project is for free. You can check, where is the best pleace for max of load and how big can be this load.
 
 3.How users can get started with the project?
-Download the repositorium calculator-of-load. Open front.py python. Input value.Check plot and data of excel.
+
+ a) If you haven't PYTHON install  from --> https://www.python.org/downloads/
+ (how install PYTHON you can check here --> https://www.youtube.com/watch?v=zKYoDK8jfLQ)
+ b) Install bibliotheces, open cmd and write pip install and 
+ -sympy
+ -openpyxl
+ -pandas
+ -matplot
+ c)Download the repositorium calculator-of-load and unzip for example in desktop location
+ d) Open cmd and find location where you unziped the repositorium (write cd in cmd and paste location)
+ e) write "python front.py"
+ f) Input value.Check plot and data of excel (will be saved in similar location like sript front.py)
 
 Below defult values:
 
