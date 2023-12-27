@@ -1,5 +1,5 @@
 1.What the project does?
-Project caculate maxium load for semitrailer or semitrailer and truckunit.
+Project caculate maxium load for semitrailer or semitrailer and truckunit. 
 
 2.Why the project is usefull?
 Project is for free. You can check, where is the best pleace for max of load and how big can be this load.
