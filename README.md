@@ -11,7 +11,7 @@ Project is for free. You can check, where is the best pleace for max of load and
  b) Install bibliotheces, open cmd and write pip install and 
  -sympy
  -openpyxl
- -pandas
+ -pandas 
  -matplot
  c)Download the repositorium calculator-of-load and unzip for example in desktop location
  d) Open cmd and find location where you unziped the repositorium (write cd in cmd and paste location)
