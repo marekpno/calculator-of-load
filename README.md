@@ -49,8 +49,7 @@ Qz	2000	Xz	7700
 I am.
 
 Below some pictures:
-
-<img src="[C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\1.JPG](https://github.com/marekpno/calculator-of-load/blob/main/data/1.JPG)" alt="error">
+<img src="https://github.com/marekpno/calculator-of-load/blob/main/data/1.JPG" alt="error">
 <img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\2.JPG" alt="error">
 <img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\3.JPG" alt="error">
 <img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\4.JPG" alt="error">
