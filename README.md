@@ -46,4 +46,12 @@ Qz	2000	Xz	7700
 4.Where users can get help with your project?
  Must analized code, or try use datas included like examples.
 5. Who maintains and contributes to the project?
- Me and chatgpt ;)
+I am.
+
+Below some pictures:
+
+<img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\1.JPG" alt="error">
+<img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\2.JPG" alt="error">
+<img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\3.JPG" alt="error">
+<img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\4.JPG" alt="error">
+<img src="C:\Users\Marek\Desktop\python 28 10 23 calculator of load\data\5.JPG" alt="error">
